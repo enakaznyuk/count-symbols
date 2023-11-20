@@ -1,0 +1,42 @@
+openapi: 3.0.1
+info:
+  title: Count symbols in String
+  contact:
+    name: Nakaznyuk Egor
+    email: egornakaznyuk@gmail.com
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+tags:
+  - name: Get request
+    description: >-
+      Makes a get request with a string, receives the number of characters in
+      the line as a response.
+paths:
+  /count/get/{key}:
+    get:
+      tags:
+        - Get request
+      summary: Decomposing a string into characters
+      description: >-
+        Allows you to find out the number of characters in a line, arranged in
+        descending order
+      operationId: findSymbols
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: integer
+                  format: int64
+components: {}
